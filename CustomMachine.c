@@ -2,21 +2,22 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-int faktoriyel();
+int factorial();
 int powerof();
+int fibonacci();
 void clrscr();
 int main() {
 	bool loop = true;
 	while (loop) {
 		clrscr();
-		printf("Yapmak istediginiz islemi yaziniz:\n	1- power of x\n	2- factorial calculator\n	3- fibonacci calculator\n	0- Exit\n");
-		int control=0;
+		printf("Type index of your calculation:\n 1- power of x\n	2- factorial calculator\n	3- fibonacci calculator\n	0- Exit\n");
+		int control = 0;
 		scanf_s("%d", &control);
 		if (control == 1) {
-		powerof();
+			powerof();
 		}
 		else if (control == 2) {
-		faktoriyel();
+			factorial();
 		}
 		else if (control == 3) {
 			fibonacci();
@@ -31,23 +32,23 @@ int main() {
 int fibonacci() {
 
 	bool continuecode = true;
-	int sayi;
-	int sonuc = 1;
+	int number;
+	int result = 1;
 
 	while (continuecode) {
 		clrscr();
-		printf("Fibonacci değerinin hesaplanmasını istediğiniz sayıyı giriniz: ");
-		scanf_s("%d", &sayi);
+		printf("Enter the number for which you want the Fibonacci value to be calculated: ");
+		scanf_s("%d", &number);
 
-		int i, n, t1 = 0, t2 = 1, nexterm;
+		int t1 = 0, t2 = 1, nexterm;
 
-		for (int i = 0; i <= sayi; i++)
+		for (int i = 0; i <= number; i++)
 		{
 			printf("%d ", t1);
 			nexterm = t1 + t2;
 			t1 = t2;
 			t2 = nexterm;
-			
+
 		}
 		printf("\n");
 		printf("Press 0 to main menu:");
@@ -57,51 +58,53 @@ int fibonacci() {
 			continuecode = false;
 		}
 	}
+	return 0;
 }
 int powerof() {
 	bool continuecode = true;
-	int sayi1, sayi2;
-	int sonuc = 1;
+	int number1, number2;
+	int result = 1;
 
 	while (continuecode) {
 		clrscr();
-		printf("Kuvvetinin alinmasini istediginiz sayiyi girin: ");
-		scanf_s("%d", &sayi1);
-		printf("Kuvveti girin:  ");
-		scanf_s("%d", &sayi2);
-		sonuc = 1;
+		printf("Enter the number you want to power of: ");
+		scanf_s("%d", &number1);
+		printf("Enter the power:  ");
+		scanf_s("%d", &number2);
+		result = 1;
 
-		for (int i = 0; i < sayi2; i++)
+		for (int i = 0; i < number2; i++)
 		{
-			sonuc = sonuc * sayi1;
+			result = result * number1;
 		}
 
 		clrscr();
-		printf("%d sayisinin %d. kuvveti : %d \n", sayi1, sayi2, sonuc);
+		printf("%d to the power of %d is: %d \n", number1, number2, result);
 		printf("Press 0 to main menu:");
 		int controlx;
 		scanf_s("%d", &controlx);
-		if ( controlx == 0) {
+		if (controlx == 0) {
 			continuecode = false;
 		}
 	}
+	return 0;
 }
-int faktoriyel() {
+int factorial() {
 	bool continuecode = true;
-	int sayi;
-	double sonuc = 1;
-	
+	int number;
+	double result = 1;
+
 	while (continuecode) {
 		clrscr();
-		printf("Faktoriyel alinmasini istediginiz sayi (max 20 giriniz): ");
-		scanf_s("%d", &sayi);
-		sonuc = 1;
-		for (int i = 2; i <= sayi; i++)
+		printf("The number you want factorial to be taken (max 20): ");
+		scanf_s("%d", &number);
+		result = 1;
+		for (int i = 2; i <= number; i++)
 		{
-			sonuc = sonuc * i;
+			result = result * i;
 		}
 		clrscr();
-		printf("%d sayisinin faktoriyeli : %.0lf \n", sayi, sonuc);
+		printf("%d's factorial : %.0lf \n", number, result);
 		printf("Press 0 to main menu:  ");
 		int controlx;
 		scanf_s("%d", &controlx);
@@ -109,11 +112,11 @@ int faktoriyel() {
 			continuecode = false;
 		}
 	}
-	
+	return 0;
 }
 
 // Ekran temizleme kodu
 void clrscr()
 {
 	system("@cls||clear");
-}			
+}
