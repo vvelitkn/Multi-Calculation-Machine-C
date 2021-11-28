@@ -9,7 +9,7 @@ int main() {
 	bool loop = true;
 	while (loop) {
 		clrscr();
-		printf("Yapmak istediginiz islemi yaziniz:\n	1- power of x\n	2- factorial calculator\n	0- Exit\n");
+		printf("Yapmak istediginiz islemi yaziniz:\n	1- power of x\n	2- factorial calculator\n	3- fibonacci calculator\n	0- Exit\n");
 		int control=0;
 		scanf_s("%d", &control);
 		if (control == 1) {
@@ -18,12 +18,46 @@ int main() {
 		else if (control == 2) {
 		faktoriyel();
 		}
+		else if (control == 3) {
+			fibonacci();
+		}
 		else if (control == 0) {
 			loop = false;
 		}
 	}
 }
 
+
+int fibonacci() {
+
+	bool continuecode = true;
+	int sayi;
+	int sonuc = 1;
+
+	while (continuecode) {
+		clrscr();
+		printf("Fibonacci değerinin hesaplanmasını istediğiniz sayıyı giriniz: ");
+		scanf_s("%d", &sayi);
+
+		int i, n, t1 = 0, t2 = 1, nexterm;
+
+		for (int i = 0; i <= sayi; i++)
+		{
+			printf("%d ", t1);
+			nexterm = t1 + t2;
+			t1 = t2;
+			t2 = nexterm;
+			
+		}
+		printf("\n");
+		printf("Press 0 to main menu:");
+		int controlx;
+		scanf_s("%d", &controlx);
+		if (controlx == 0) {
+			continuecode = false;
+		}
+	}
+}
 int powerof() {
 	bool continuecode = true;
 	int sayi1, sayi2;
